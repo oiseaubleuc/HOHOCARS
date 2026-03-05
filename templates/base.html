@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Car CRM{% endblock %} | Car Vending CRM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="app">
+    <nav class="main-nav">
+      <a href="{{ url_for('index') }}" class="nav-brand">Car CRM</a>
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Dashboard</a>
+        <a href="{{ url_for('leads_page') }}" class="{% if request.endpoint == 'leads_page' %}active{% endif %}">Leads</a>
+        <a href="{{ url_for('customers_page') }}" class="{% if request.endpoint == 'customers_page' %}active{% endif %}">Customers</a>
+        <a href="{{ url_for('vehicles_page') }}" class="{% if request.endpoint == 'vehicles_page' %}active{% endif %}">Vehicles</a>
+        <a href="{{ url_for('deals_page') }}" class="{% if request.endpoint == 'deals_page' %}active{% endif %}">Deals</a>
+        <a href="{{ url_for('activities_page') }}" class="{% if request.endpoint == 'activities_page' %}active{% endif %}">Activities</a>
+      </div>
+    </nav>
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

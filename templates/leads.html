@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Leads{% endblock %}
+{% block content %}
+<header class="page-header">
+  <h1>Leads</h1>
+  <div class="header-actions">
+    <select id="filter-status">
+      <option value="">All statuses</option>
+      <option value="new">New</option>
+      <option value="contacted">Contacted</option>
+      <option value="qualified">Qualified</option>
+      <option value="converted">Converted</option>
+      <option value="lost">Lost</option>
+    </select>
+    <button type="button" class="btn btn-primary" id="btn-new">+ New lead</button>
+  </div>
+</header>
+<div class="content-with-form">
+  <section class="card table-card">
+    <div id="leads-list" class="data-list"></div>
+  </section>
+  <aside class="form-panel hidden" id="form-panel">
+    <div class="form-header">
+      <h2 id="form-title">New lead</h2>
+      <button type="button" class="btn-close" id="btn-close-form">&times;</button>
+    </div>
+    <form id="lead-form">
+      <input type="hidden" id="lead-id" />
+      <label>Name <span class="required">*</span><input type="text" id="name" required /></label>
+      <label>Email<input type="email" id="email" /></label>
+      <label>Phone<input type="tel" id="phone" /></label>
+      <label>Source
+        <select id="source">
+          <option value="web">Web</option>
+          <option value="walk-in">Walk-in</option>
+          <option value="referral">Referral</option>
+          <option value="phone">Phone</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="status">
+          <option value="new">New</option>
+          <option value="contacted">Contacted</option>
+          <option value="qualified">Qualified</option>
+          <option value="converted">Converted</option>
+          <option value="lost">Lost</option>
+        </select>
+      </label>
+      <label>Vehicle interest<input type="text" id="vehicle_interest" /></label>
+      <label>Budget min<input type="number" id="budget_min" step="1000" /></label>
+      <label>Budget max<input type="number" id="budget_max" step="1000" /></label>
+      <label>Notes<textarea id="notes" rows="2"></textarea></label>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="btn-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='leads.js') }}"></script>
+{% endblock %}

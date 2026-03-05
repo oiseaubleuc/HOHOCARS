@@ -1,0 +1,326 @@
+/* Car Vending CRM - Full styles */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #0f1419;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-links a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover { color: #e6edf3; background: #21262d; }
+.nav-links a.active { color: #58a6ff; background: #21262d; }
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.header-actions input[type="search"] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #e6edf3;
+  min-width: 200px;
+}
+
+.header-actions select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #e6edf3;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: #238636;
+  color: #fff;
+}
+
+.btn-primary:hover { background: #2ea043; }
+
+.btn-secondary {
+  background: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+}
+
+.btn-secondary:hover { background: #30363d; }
+
+.btn-danger {
+  background: #da3633;
+  color: #fff;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.btn-danger:hover { background: #b62324; }
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #8b949e;
+  padding: 0;
+}
+
+.btn-close:hover { color: #e6edf3; }
+
+/* Cards */
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8b949e;
+}
+
+/* Dashboard */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.stat-box .value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #58a6ff;
+}
+
+.stat-box .label {
+  font-size: 0.8rem;
+  color: #8b949e;
+  margin-top: 0.25rem;
+}
+
+.list-compact .item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #21262d;
+  font-size: 0.9rem;
+}
+
+.list-compact .item:last-child { border-bottom: none; }
+
+.list-compact .item strong { display: block; }
+.list-compact .item span { color: #8b949e; font-size: 0.85rem; }
+
+.list-compact .empty { color: #8b949e; padding: 0.5rem 0; margin: 0; }
+
+/* Content + form layout */
+.content-with-form {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .content-with-form { grid-template-columns: 1fr; }
+}
+
+.table-card { min-height: 200px; }
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.data-list .empty {
+  color: #8b949e;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #21262d;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+}
+
+.data-row:hover { background: #252b33; }
+
+.data-row .info { flex: 1; min-width: 0; }
+.data-row .info strong { display: block; margin-bottom: 0.2rem; }
+.data-row .info span { font-size: 0.85rem; color: #8b949e; }
+.data-row .meta { font-size: 0.8rem; color: #8b949e; margin-left: 0.5rem; }
+.data-row .actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-new { background: #388bfd33; color: #58a6ff; }
+.badge-contacted { background: #a371f733; color: #a371f7; }
+.badge-qualified { background: #23863633; color: #3fb950; }
+.badge-converted { background: #238636; color: #fff; }
+.badge-lost { background: #da363333; color: #f85149; }
+.badge-quote { background: #388bfd33; color: #58a6ff; }
+.badge-negotiation { background: #d2992233; color: #d29922; }
+.badge-won { background: #238636; color: #fff; }
+.badge-available { background: #3fb95033; color: #3fb950; }
+.badge-reserved { background: #d2992233; color: #d29922; }
+.badge-sold { background: #8b949e; color: #fff; }
+
+/* Form panel */
+.form-panel {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.25rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.form-panel.hidden { display: none; }
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-header h2 { margin: 0; font-size: 1.1rem; }
+
+.form-panel label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-top: 0.25rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #e6edf3;
+  font-size: 0.9rem;
+}
+
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+}
+
+.required { color: #f85149; }
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-actions .btn { flex: 1; }

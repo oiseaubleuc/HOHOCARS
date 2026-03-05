@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Vehicles{% endblock %}
+{% block content %}
+<header class="page-header">
+  <h1>Vehicle inventory</h1>
+  <div class="header-actions">
+    <select id="filter-status">
+      <option value="">All statuses</option>
+      <option value="available">Available</option>
+      <option value="reserved">Reserved</option>
+      <option value="sold">Sold</option>
+    </select>
+    <button type="button" class="btn btn-primary" id="btn-new">+ Add vehicle</button>
+  </div>
+</header>
+<div class="content-with-form">
+  <section class="card table-card">
+    <div id="vehicles-list" class="data-list"></div>
+  </section>
+  <aside class="form-panel hidden" id="form-panel">
+    <div class="form-header">
+      <h2 id="form-title">Add vehicle</h2>
+      <button type="button" class="btn-close" id="btn-close-form">&times;</button>
+    </div>
+    <form id="vehicle-form">
+      <input type="hidden" id="vehicle-id" />
+      <label>Make <span class="required">*</span><input type="text" id="make" required /></label>
+      <label>Model <span class="required">*</span><input type="text" id="model" required /></label>
+      <label>Year <span class="required">*</span><input type="number" id="year" min="1990" max="2030" required /></label>
+      <label>Trim<input type="text" id="trim" /></label>
+      <label>VIN<input type="text" id="vin" /></label>
+      <label>Price (€) <span class="required">*</span><input type="number" id="price" step="100" required /></label>
+      <label>Mileage (km)<input type="number" id="mileage_km" min="0" /></label>
+      <label>Fuel type<input type="text" id="fuel_type" placeholder="e.g. Diesel, Petrol, Electric" /></label>
+      <label>Transmission<input type="text" id="transmission" placeholder="e.g. Manual, Automatic" /></label>
+      <label>Color<input type="text" id="color" /></label>
+      <label>Status
+        <select id="status">
+          <option value="available">Available</option>
+          <option value="reserved">Reserved</option>
+          <option value="sold">Sold</option>
+        </select>
+      </label>
+      <label>Notes<textarea id="notes" rows="2"></textarea></label>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="btn-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vehicles.js') }}"></script>
+{% endblock %}
